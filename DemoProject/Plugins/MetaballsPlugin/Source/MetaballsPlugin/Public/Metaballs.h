@@ -78,10 +78,19 @@ public:
 	void SetBallTransform(int32 index, FVector transfrom);
 
 	UFUNCTION(BlueprintCallable, Category = "Metaballs")
+	FVector GetBallTransform(int32 index);
+
+	UFUNCTION(BlueprintCallable, Category = "Metaballs")
 	void SetNumBalls(int32 value);
 
 	UFUNCTION(BlueprintCallable, Category = "Metaballs")
+	FORCEINLINE int32 GetNumBalls() { return m_NumBalls; }
+
+	UFUNCTION(BlueprintCallable, Category = "Metaballs")
 	void SetScale(float value);
+
+	UFUNCTION(BlueprintCallable, Category = "Metaballs")
+	FORCEINLINE float GetScale() { return m_Scale; }
 
 	UFUNCTION(BlueprintCallable, Category = "Metaballs")
 	void SetGridSteps(int32 value);
@@ -90,7 +99,13 @@ public:
 	void SetRandomSeed(bool seed);
 
 	UFUNCTION(BlueprintCallable, Category = "Metaballs")
+	FORCEINLINE bool GetRandomSeed() { return m_randomseed; }
+
+	UFUNCTION(BlueprintCallable, Category = "Metaballs")
 	void SetAutoMode(bool mode);
+
+	UFUNCTION(BlueprintCallable, Category = "Metaballs")
+	FORCEINLINE bool GetAutoMode() { return m_automode; }
 
 	UFUNCTION(BlueprintCallable, Category = "Metaballs")
 	void SetAutoLimitX(float limit);
@@ -101,40 +116,43 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Metaballs")
 	void SetAutoLimitZ(float limit);
 
+	UFUNCTION(BlueprintCallable, Category = "Metaballs")
+	FORCEINLINE FVector GetAutoLimit() { return FVector(m_AutoLimitX, m_AutoLimitY, m_AutoLimitZ); }
+
 	/*Number of metaballs (0 - disable)*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Number of balls"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Number of balls"))
 	int32 m_NumBalls;
 
 	/*Metaballs area scale*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Scale"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Scale"))
 	float m_Scale;
 
 	/*If bigger value, then metaballs are more detailed*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Grid steps"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Grid steps"))
 	int32 m_GridStep;
 
 	/*If true, start balls at random positions. Otherwise from center*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Random seed"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Random seed"))
 	bool m_randomseed;
 
 	/*If true, metaballs will do automatic movement. Otherwise you should set position manually*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Auto fly mode"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Auto fly mode"))
 	bool m_automode;
 
 	/*Limit direction by X axis. Only for Auto fly mode!*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Auto limits"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Auto limits"))
 	float m_AutoLimitX;
 
 	/*Limit direction by Y axis. Only for Auto fly mode!*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Auto limit Y"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Auto limit Y"))
 	float m_AutoLimitY;
 
 	/*Limit direction by Z axis. Only for Auto fly mode!*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Auto limit Z"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Auto limit Z"))
 	float m_AutoLimitZ;
 
 	/*Metaballs material*/
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Settings, meta = (DisplayName = "Material"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Metaball|Settings", meta = (DisplayName = "Material"))
 	UMaterialInterface* m_Material;
 
 	UPROPERTY()

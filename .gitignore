@@ -1,3 +1,7 @@
-Saved
-Intermediate
-.vs
+DemoProject/Intermediate/
+DemoProject/Plugins/MetaballsPlugin/Binaries/
+DemoProject/Plugins/MetaballsPlugin/Intermediate/
+DemoProject/Saved/
+DemoProject/Binaries/
+DemoProject/.vs/
+DemoProject/MetaDemo.sln

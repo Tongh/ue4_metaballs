@@ -16,8 +16,8 @@
 
 #pragma once
 
-#include "MetaballsPluginPrivatePCH.h"
 #include "MetaballsPlugin.h"
+#include "MetaballsPluginPrivatePCH.h"
 
 void MetaballsPluginImpl::StartupModule()
 {

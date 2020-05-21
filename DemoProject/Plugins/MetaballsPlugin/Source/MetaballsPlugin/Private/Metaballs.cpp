@@ -17,9 +17,9 @@
 // See "License.md" for full licensing details.
 
 
+#include "Metaballs.h"
 #include "MetaballsPluginPrivatePCH.h"
 #include "CMarchingCubes.h"
-#include "Metaballs.h"
 
 
 
@@ -783,6 +783,20 @@ void AMetaballs::SetBallTransform(int32 index, FVector transfrom)
 		m_Balls[index].p.X = transfrom.Y;
 		m_Balls[index].p.Z = transfrom.Z;
 	}
+}
+
+FVector AMetaballs::GetBallTransform(int32 index)
+{
+	if (index > m_NumBalls - 1)
+	{
+		UE_LOG(LogTemp, Error, TEXT("GetBallTransform() Index: %d out of Range"), index);
+		return FVector::ZeroVector;
+	}
+	else
+	{
+		return m_Balls[index].p;
+	}
+
 }
 
 void AMetaballs::SetNumBalls(int value)
